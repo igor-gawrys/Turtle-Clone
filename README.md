@@ -1,6 +1,6 @@
-# youngerlang
+# Turtle
 
-> Younger lang for learn programming
+> Turtle lang for learn programming
 
 ## Build Setup
 
@@ -21,3 +21,9 @@ $ npm run generate
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
 
+# Commands
+
+## move:top { px }
+## move:bottom { px }
+## move:right { px }
+## move:color { color }

@@ -8,6 +8,14 @@
 
      </div>
 
+     <div class='btn-group' >
+
+        <button class='btn btn-success' disabled> W przód </button>
+
+        <button class='btn btn-danger' @click="backwards( )"> W tył </button>
+
+     </div>
+
   </div>
 
 </template>
@@ -45,6 +53,12 @@
          this.$emit( 'entered', e.srcElement.value, this.history );
 
          e.srcElement.value = "";
+
+      },
+
+      backwards( ) {
+
+         this.$emit( 'backwards', this.history );
 
       }
 

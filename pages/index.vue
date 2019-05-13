@@ -6,7 +6,7 @@
 
     <div class='col-md-6' >
       
-        <AppCommander ref="commander" v-on:entered="entered" >
+        <AppCommander ref="commander" v-on:entered="entered" v-on:backwards="backwards" >
 
         </AppCommander>
 
@@ -272,6 +272,26 @@ export default {
           break;
 
        }
+
+       this.$refs[ 'commander' ].history = history;
+
+     },
+
+     backwards( history ) {
+
+       let position = history [ history.length - 1 ].position;
+
+       this.$refs[ 'provider' ].provider.context.clearRect( position [ 0 ], position [ 1 ], position [ 2 ], position [ 3 ] );
+
+       position = history [ history.length - 2 ].position;
+
+       this.$refs[ 'provider' ].provider.context.fillRect( position [ 0 ], position [ 1 ], position [ 2 ], position [ 3 ] );
+
+       this.$refs[ 'provider' ].provider.context.fillStyle = history [ history.length - 2 ].color;
+
+       this.$refs[ 'provider' ].provider.context.fill();
+
+       history = history.splice( 0, history.length - 2 );
 
        this.$refs[ 'commander' ].history = history;
 
